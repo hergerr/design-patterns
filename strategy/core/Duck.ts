@@ -16,4 +16,17 @@ export abstract class Duck {
   executeFlying = () => {
     this.flyingInteface.fly();
   };
+
+  swim = () => {
+    console.log("All ducks can swim");
+  };
+
+  // dynamic behavior set
+  setQuackingInterface = (inrfc: QuackingInterface) => {
+    this.quackingInterface = inrfc;
+  };
+
+  setFlyingInterface = (inrfc: FlyingInterface) => {
+    this.flyingInteface = inrfc;
+  };
 }
