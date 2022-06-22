@@ -1,0 +1,1 @@
+Desgin patterns implemented in Typescript based on HF: Design Patterns examples
