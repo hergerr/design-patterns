@@ -1,3 +1,3 @@
 export interface QuackingInterface {
-  quack: () => void;
+  quack(): void;
 }

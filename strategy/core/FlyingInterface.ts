@@ -1,3 +1,3 @@
 export interface FlyingInterface {
-  fly: () => void;
+  fly(): void;
 }
