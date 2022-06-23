@@ -16,8 +16,7 @@ export class WeatherData implements Observable {
   }
 
   removeObserver(observer: Observer): void {
-    this.observers = this.observers.filter(item => JSON.stringify(item) !== JSON.stringify(observer))
-  
+    this.observers = this.observers.filter(item => item !== observer)
   }
   
   notifyObservers(): void {

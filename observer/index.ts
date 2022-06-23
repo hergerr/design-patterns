@@ -7,6 +7,8 @@ const weatherData = new WeatherData();
 const currentContidions = new CurrentConditionsView(weatherData);
 const statistics = new StatisticsView(weatherData);
 const forecast = new ForecastView(weatherData);
+// weatherData.removeObserver(forecast);
+// weatherData.removeObserver(statistics);
 
 weatherData.setParams(33, 65, 1013);
 weatherData.setParams(23, 70, 997);
