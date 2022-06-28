@@ -1,5 +1,6 @@
 import { IngredientDecorator } from "../../core/IngredientDecorator";
 import { Beverage } from "../../core/Beverage";
+import { Sizes } from "../../core/Size";
 
 export class Chocolate extends IngredientDecorator {
   constructor(private beverage: Beverage) {
