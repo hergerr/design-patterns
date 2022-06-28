@@ -1,4 +1,5 @@
 import { Beverage } from "./core/Beverage";
+import { Sizes } from "./core/Size";
 import { DarkRoast } from "./implementation/base/DarkRoast";
 import { Espresso } from "./implementation/base/Espresso";
 import { StarCafeSpecial } from "./implementation/base/StarCafeSpecial";
@@ -20,3 +21,10 @@ bev3 = new SoyMilk(bev3);
 bev3 = new Chocolate(bev3);
 bev3 = new WhippedCream(bev3);
 console.log(bev3.getDescription() + ": " + bev3.cost());
+
+// sizes excercise
+let bev4 = new Espresso();
+bev4.setSize(Sizes.LARGE);
+console.log(bev4.getSize());
+bev4 = new Chocolate(bev4);
+console.log(bev4.getDescription() + ": " + bev4.cost());
