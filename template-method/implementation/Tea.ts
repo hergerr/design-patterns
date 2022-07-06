@@ -16,7 +16,7 @@ export class Tea extends CoffeinBeverage {
     const answer = await new Promise((resolve) => {
       readline.question(
         "Do you want to add lemon to your tea? [y/n] ",
-        resolve
+        (ans: string) => resolve(ans)
       );
     });
 
