@@ -1,23 +1,38 @@
+import { AbstractDuckFactory } from "./core/AbstractDuckFactory";
+import { Flock } from "./core/Flock";
 import { GooseAdapter } from "./core/GooseAdapter";
 import { Quackable } from "./core/Quackable";
 import { QuackCounter } from "./core/QuackCounter";
-import { CallDuck } from "./implementation/CallDuck";
-import { DecoyDuck } from "./implementation/DecoyDuck";
+import { DuckFactory } from "./implementation/DuckFactory";
 import { Goose } from "./implementation/Goose";
-import { MallardDuck } from "./implementation/MallardDuck";
 
 const simulate = (quackable: Quackable) => {
   quackable.quack();
 };
 
-const mallardDuck: Quackable = new QuackCounter(new MallardDuck());
-const callDuck: Quackable = new QuackCounter(new CallDuck());
-const decoyDuck: Quackable = new QuackCounter(new DecoyDuck());
+const factory: AbstractDuckFactory = new DuckFactory();
+
+const mallardDuck: Quackable = factory.createMallardDuck();
+const callDuck: Quackable = factory.createCallDuck();
+const decoyDuck: Quackable = factory.createDecoyDuck();
 const goose: Quackable = new GooseAdapter(new Goose());
 
-simulate(mallardDuck);
-simulate(callDuck);
-simulate(decoyDuck);
-simulate(goose);
+const flockOfDucks: Flock = new Flock();
+flockOfDucks.add(mallardDuck);
+flockOfDucks.add(callDuck);
+flockOfDucks.add(decoyDuck);
+
+const mallardOne = factory.createMallardDuck();
+const mallardTwo = factory.createMallardDuck();
+const mallardThree = factory.createMallardDuck();
+
+const flockOfMallars: Flock = new Flock();
+flockOfMallars.add(mallardOne);
+flockOfMallars.add(mallardTwo);
+flockOfMallars.add(mallardThree);
+
+flockOfDucks.add(flockOfMallars);
+
+simulate(flockOfDucks);
 
 console.log(QuackCounter.getQuacks());
